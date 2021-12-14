@@ -36,4 +36,3 @@ jobs:
         run: wget https://pass.s3.amazonaws.com/PEM.pem && chmod 400 PEM.pem && sleep 40s && ssh -i "PEM.pem" -o StrictHostKeyChecking=no ubuntu@$ip "sudo apt-get update && echo "Updated successfully" && sudo apt-get upgrade -y && echo "Upgraded successfully" && sudo apt install apache2 -y; sudo ufw allow 'Apache Full'; sudo systemctl status apache2;sudo rm /var/www/html/index.html; git clone https://github.com/Dmacc9223/BootStrap;cd BootStrap; sudo cp * /var/www/html"
       - name: Destroying the instance
         run: echo $ip && sleep 90s && terraform destroy -auto-approve
-
